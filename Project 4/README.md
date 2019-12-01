@@ -10,7 +10,7 @@ Project 4 for Data Scientist Nanodegree of Udacity
 
 ## Project Motivation<a name="motivation"></a>
 
-I am useing the Stack Overflow Developer Survey Data for the years 2018 and 2019 Stack Overflow Developer Survey to understand about the following questions
+I am using the Stack Overflow Developer Survey Data for the years 2018 and 2019 Stack Overflow Developer Survey to understand about the following questions
 
 1. What is the general demographics of developers?
 2. What are the features diffrentiating high earning developers from low earning developers?
