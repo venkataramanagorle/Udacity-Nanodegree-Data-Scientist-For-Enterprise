@@ -6,7 +6,7 @@ My code for compeltion of the course
 
 ## Projects
 * Project 4 - Data Science Blog Post
-* Project 5 - Disaster-Response-Pipelines
+* Project 5 - Disaster Response Pipelines
 
 ### Prerequisites
 
