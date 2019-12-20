@@ -7,6 +7,7 @@ def load_data(messages_filepath, categories_filepath):
     messages = pd.read_csv('../data/disaster_messages.csv')
     categories = pd.read_csv('../data/disaster_categories.csv')
     df = pd.merge(messages, categories, on='id')
+    return df
 
 def clean_data(df):
     categories = df.categories.str.split(pat=';', expand=True)
@@ -15,6 +16,8 @@ def clean_data(df):
     categories.columns = category_colnames
     df = df.drop('categories', axis=1)
     df = pd.concat([df, categories], axis=1)
+    df = df.drop_duplicates()
+    return df
 
 
 def save_data(df, database_filename):
