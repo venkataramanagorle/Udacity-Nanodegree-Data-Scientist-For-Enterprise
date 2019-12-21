@@ -12,25 +12,33 @@ from sklearn.externals import joblib
 from sqlalchemy import create_engine
 
 
+#Import Libraries for NLP
+import nltk
+import re
+nltk.download(['punkt', 'wordnet','stopwords'])
+from nltk.tokenize import word_tokenize
+from nltk.corpus import stopwords
+from nltk.stem import WordNetLemmatizer
+
 app = Flask(__name__)
 
 def tokenize(text):
-    tokens = word_tokenize(text)
-    lemmatizer = WordNetLemmatizer()
-
-    clean_tokens = []
-    for tok in tokens:
-        clean_tok = lemmatizer.lemmatize(tok).lower().strip()
-        clean_tokens.append(clean_tok)
-
-    return clean_tokens
+    #Normalize text. Replace Non Alphanumeric with space
+    text = re.sub(r"[^a-zA-Z0-9]", " ", text.lower())
+    #Tokenize
+    words = word_tokenize(text)
+    #Remove Stop Words
+    words = [word for word in words if word not in stopwords.words('english')]
+    #Lemmatize
+    tokens = [WordNetLemmatizer().lemmatize(word).lower().strip() for word in words]
+    return tokens
 
 # load data
-engine = create_engine('sqlite:///../data/diaster_db.db')
+engine = create_engine('sqlite:///../data/disaster_db.db')
 df = pd.read_sql_table('diaster', engine)
 
 # load model
-model = joblib.load("../data/model.pkl")
+model = joblib.load("../models/model.pkl")
 
 # index webpage displays cool visuals and receives user input text for model
 @app.route('/')
@@ -40,7 +48,12 @@ def index():
     # extract data needed for visuals
     # TODO: Below is an example - modify to extract data for your own visuals
     genre_counts = df.groupby('genre').count()['message']
+    print(genre_counts.values)
     genre_names = list(genre_counts.index)
+    
+    # Top five categories count
+    top_category_count = df.iloc[:,4:].sum().nlargest(5)
+    top_category_names = list(top_category_count.index)
     
     # create visuals
     # TODO: Below is an example - modify to create your own visuals
@@ -49,7 +62,7 @@ def index():
             'data': [
                 Bar(
                     x=genre_names,
-                    y=genre_counts
+                    y=genre_counts.values
                 )
             ],
 
@@ -60,6 +73,24 @@ def index():
                 },
                 'xaxis': {
                     'title': "Genre"
+                }
+            }
+        },
+        {
+            'data': [
+                Bar(
+                    x=top_category_names,
+                    y=top_category_count
+                )
+            ],
+
+            'layout': {
+                'title': 'Top Five Categories',
+                'yaxis': {
+                    'title': "Count"
+                },
+                'xaxis': {
+                    'title': "Categories"
                 }
             }
         }
@@ -77,7 +108,8 @@ def index():
 @app.route('/go')
 def go():
     # save user input in query
-    query = request.args.get('query', '') 
+    query = request.args.get('query', '')
+    print(query)
 
     # use model to predict classification for query
     classification_labels = model.predict([query])[0]

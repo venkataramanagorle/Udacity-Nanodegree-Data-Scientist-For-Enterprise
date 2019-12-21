@@ -1,4 +1,5 @@
 import sys
+import os
 # import libraries
 import pandas as pd
 from sqlalchemy import create_engine
@@ -14,6 +15,11 @@ def clean_data(df):
     row = categories.loc[0]
     category_colnames = [name[:-2] for name in row]
     categories.columns = category_colnames
+    for column in categories:
+        # set each value to be the last character of the string
+        categories[column] = categories[column].str[-1:]
+        # convert column from string to numeric
+        categories[column] = categories[column].astype(int)
     df = df.drop('categories', axis=1)
     df = pd.concat([df, categories], axis=1)
     df = df.drop_duplicates()
