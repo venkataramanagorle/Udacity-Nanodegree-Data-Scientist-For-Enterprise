@@ -67,10 +67,10 @@ def build_model():
     return cv
 
 
-def evaluate_model(model, X_test, Y_test, category_names):
+def evaluate_model(Y_test, Y_pred):
     metrics = pd.DataFrame(columns=['Feature','f_score','precision','recall'])
     column_no = 0
-    for feature in category_names:
+    for feature in Y_test.columns:
         precision, recall, f_score, support = precision_recall_fscore_support(Y_test[feature], Y_pred[:,column_no], average='weighted')
         metrics.set_value(column_no, 'Feature',   feature)
         metrics.set_value(column_no, 'f_score',   f_score)
@@ -100,8 +100,11 @@ def main():
         print('Training model...')
         model.fit(X_train, Y_train)
         
+        #Predict with model
+        Y_pred = model.predict(X_test)
+        
         print('Evaluating model...')
-        evaluate_model(model, X_test, Y_test, category_names)
+        evaluate_model(Y_test, Y_pred)
 
         print('Saving model...\n    MODEL: {}'.format(model_filepath))
         save_model(model, model_filepath)
