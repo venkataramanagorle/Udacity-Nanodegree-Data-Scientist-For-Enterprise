@@ -22,15 +22,15 @@ This is an Udacity Nanodegree project. In this project, a web-application is bui
   - 'disaster_categories.csv'  - Disaster categories dataset.
   - 'disaster_messages.csv'  - Disaster Messages dataset.
   - 'process_data.py' - The data processing pipeline script.
+  - 'disaster_db.db' - SqlAlchemy database used to train the model.
 
 - 'models/'
   - 'train_classifier.py' - The NLP and ML pipeline script.
+  - 'model.pkl' - Trained model dump for running the app.
 
-- 'preparation/' 
+- 'notebooks/'
   - 'ETL Pipeline Preparation.ipynb'  -  Jupyter notebook for ETL preparation
   - 'ML Pipeline Preparation.ipynb'  -  Jupyter notebook for ML preparation
-  - 'messages.csv'  -  CSV file containing the messages
-  - 'categories.csv'  -  CSV file containing the categories
 
 ### Instructions:
 1. Run the following commands in the project's root directory to set up your database and model.
