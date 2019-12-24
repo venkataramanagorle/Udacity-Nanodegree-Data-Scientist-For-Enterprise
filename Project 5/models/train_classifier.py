@@ -3,7 +3,7 @@ import os
 # import libraries
 import pandas as pd
 from sqlalchemy import create_engine
-import pickle
+from sklearn.externals import joblib
 
 #Import Libraries for NLP
 import nltk
@@ -30,7 +30,7 @@ from sklearn.metrics import precision_recall_fscore_support
 Returns X for train feature, Y for target and target category names
 '''
 def load_data(database_filepath):
-    engine = create_engine('sqlite:///../data/diaster_db.db')
+    engine = create_engine('sqlite:///' + database_filepath)
     df = pd.read_sql_table('diaster', con=engine)
     dummies = pd.get_dummies(df[['genre','related']].astype(str))
     X = df['message']
@@ -84,7 +84,7 @@ def evaluate_model(Y_test, Y_pred):
 
 def save_model(model, model_filepath):
     if os.path.exists(model_filepath): os.remove(model_filepath)
-    pickle.dump(model, open(model_filepath, 'wb'))
+    joblib.dump(model, model_filepath)
 
 
 def main():
