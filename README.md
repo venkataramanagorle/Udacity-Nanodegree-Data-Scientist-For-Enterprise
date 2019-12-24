@@ -7,7 +7,7 @@ My code for compeltion of the course
 ## Projects
 * [Project 1](https://github.com/venkataramanagorle/Udacity-Nanodegree-Data-Scientist-For-Enterprise/tree/master/Project%201) - Finding Donors for Charity
 * [Project 2](https://github.com/venkataramanagorle/Udacity-Nanodegree-Data-Scientist-For-Enterprise/tree/master/Project%202) - Create Your Own Image Classifier
-* [Project 3](https://github.com/venkataramanagorle/Udacity-Nanodegree-Data-Scientist-For-Enterprise/tree/master/Project%202) - Creating Customer Segments with Arvato
+* [Project 3](https://github.com/venkataramanagorle/Udacity-Nanodegree-Data-Scientist-For-Enterprise/tree/master/Project%203) - Creating Customer Segments with Arvato
 * [Project 4](https://github.com/venkataramanagorle/Udacity-Nanodegree-Data-Scientist-For-Enterprise/tree/master/Project%204) - Data Science Blog Post
 * [Project 5](https://github.com/venkataramanagorle/Udacity-Nanodegree-Data-Scientist-For-Enterprise/tree/master/Project%205) - Disaster Response Pipelines
 * [Project 6](https://github.com/venkataramanagorle/Udacity-Nanodegree-Data-Scientist-For-Enterprise/tree/master/Project%206) - Recommendations with IBM
