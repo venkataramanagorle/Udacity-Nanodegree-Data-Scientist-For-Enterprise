@@ -17,7 +17,7 @@ My code for compeltion of the course
 
 Repository is for documentation and reference.
 
-# Certificate
+## Certificate
 You can find my course completion certificate in the root directory and [here](https://confirm.udacity.com/PHLRLHAR)
 
 ## License
