@@ -13,12 +13,14 @@ My code for compeltion of the course
 * [Project 6](https://github.com/venkataramanagorle/Udacity-Nanodegree-Data-Scientist-For-Enterprise/tree/master/Project%206) - Recommendations with IBM
 * [Project 7](https://github.com/venkataramanagorle/Udacity-Nanodegree-Data-Scientist-For-Enterprise/tree/master/Project%207) - House Prices Prediction with Regression
 
-### Prerequisites
+## Prerequisites
 
 Repository is for documentation and reference.
 
-## License
+# Certificate
+You can find my course completion certificate in the root directory and [here](https://confirm.udacity.com/PHLRLHAR)
 
+## License
 Please feel free to refer my implemetations
 Happy Coding!!
 
