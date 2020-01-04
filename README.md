@@ -15,7 +15,7 @@ My code for compeltion of the course
 
 ## Prerequisites
 
-Repository is for documentation and reference.
+This repository is for documentation and reference of my implementations.
 
 ## Certificate
 You can find my course completion certificate in the root directory and [here](https://confirm.udacity.com/PHLRLHAR)
